@@ -17,8 +17,5 @@ readme = "README.md"
 [tool.setuptools.packages.find]
 where = ["src"]
 
-[tool.setuptools.package-data]
-seesr_fork = ["ram/configs/swin/*.json"]  # JSONファイルを含める
-
 [project.optional-dependencies]
 dev = []
