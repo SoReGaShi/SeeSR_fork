@@ -20,5 +20,8 @@ where = ["src"]
 [tool.setuptools.package-data]
 "seesr" = ["**/*.json"]
 
+[tool.setuptools]
+include-package-data = true
+
 [project.optional-dependencies]
 dev = []
