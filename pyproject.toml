@@ -18,7 +18,7 @@ readme = "README.md"
 where = ["src"]
 
 [tool.setuptools.package-data]
-"seesr" = ["**/*.json"]
+"seesr_fork" = ["**/*.json"]
 
 [tool.setuptools]
 include-package-data = true
