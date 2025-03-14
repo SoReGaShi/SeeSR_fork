@@ -18,7 +18,7 @@ readme = "README.md"
 where = ["src"]
 
 [tool.setuptools.package-data]
-"seesr_fork" = ["**/*.json"]
+"seesr_fork" = ["**/*.*"]  # すべてのファイルタイプを含める（これがないと、.jsonや.txtなどを含むディレクトリがインストールされない）
 
 [tool.setuptools]
 include-package-data = true
