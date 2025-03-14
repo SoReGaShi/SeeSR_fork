@@ -120,6 +120,8 @@ def load_seesr_pipeline(args, accelerator, enable_xformers_memory_efficient_atte
 
     return validation_pipeline
 
+# 元のコード
+"""
 def load_tag_model(args, device='cuda'):
     
     model = ram(pretrained='preset/models/ram_swin_large_14m.pth',
@@ -129,6 +131,24 @@ def load_tag_model(args, device='cuda'):
     model.eval()
     model.to(device)
     
+    return model
+"""
+
+# 修正コード
+def load_tag_model(args, device='cuda'):
+    # 現在のスクリプトファイルのディレクトリを取得
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    # 'preset/models/ram_swin_large_14m.pth' の相対パスを指定
+    model_path = os.path.join(script_dir, 'preset', 'models', 'ram_swin_large_14m.pth')
+
+    # モデルのロード
+    model = ram(pretrained=model_path,
+                pretrained_condition=args.ram_ft_path,
+                image_size=384,
+                vit='swin_l')
+    model.eval()
+    model.to(device)
+
     return model
     
 def get_validation_prompt(args, image, model, device='cuda'):
